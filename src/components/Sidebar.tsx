@@ -42,7 +42,7 @@ export function Sidebar({ activeTab, onTabChange, darkMode, onToggleDarkMode }: 
       <div className="p-4 border-b border-border flex items-center justify-between">
         {!collapsed && (
           <div>
-            <h1 className="font-bold text-lg">CryptoFolio</h1>
+            <h1 className="font-bold text-lg">SMC Portfolio Dashboard</h1>
             <p className="text-xs text-muted-foreground">Portfolio Manager</p>
           </div>
         )}
