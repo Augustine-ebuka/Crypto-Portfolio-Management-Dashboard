@@ -38,7 +38,7 @@ interface PortfolioMetrics {
 }
 
 // Calculate comprehensive portfolio metrics
-function calculatePortfolioMetrics(positions: Position[]): PortfolioMetrics {
+export function calculatePortfolioMetrics(positions: Position[]): PortfolioMetrics {
   if (positions.length === 0) {
     return {
       totalValue: 0,
@@ -116,7 +116,7 @@ interface RiskMetrics {
   informationRatio: number;
 }
 
-function calculateRiskMetrics(positions: Position[], marketData?: number[]): RiskMetrics {
+export function calculateRiskMetrics(positions: Position[], marketData?: number[]): RiskMetrics {
   const returns = positions.map(p => ((p.currentPrice - p.averageBuyPrice) / p.averageBuyPrice));
   const sortedReturns = [...returns].sort((a, b) => a - b);
   
@@ -163,7 +163,7 @@ function calculateRiskMetrics(positions: Position[], marketData?: number[]): Ris
 }
 
 // Price data processing for charts
-function processPriceData(rawData: any[], timeframe: string) {
+export function processPriceData(rawData: any[], timeframe: string) {
   // Process and aggregate price data based on timeframe
   const processed = rawData.map(item => ({
     timestamp: item.timestamp,
@@ -190,7 +190,7 @@ function processPriceData(rawData: any[], timeframe: string) {
 }
 
 // Technical indicator calculations
-function calculateMovingAverages(data: any[]) {
+export function calculateMovingAverages(data: any[]) {
   const sma20 = [];
   const ema20 = [];
   
@@ -215,7 +215,7 @@ function calculateMovingAverages(data: any[]) {
   return { sma20, ema20 };
 }
 
-function calculateRSI(data: any[], period = 14) {
+export function calculateRSI(data: any[], period = 14) {
   const rsi = [];
   const gains = [];
   const losses = [];
@@ -239,7 +239,7 @@ function calculateRSI(data: any[], period = 14) {
   return [null, ...rsi]; // Align with original data array
 }
 
-function calculateMACD(data: any[]) {
+export function calculateMACD(data: any[]) {
   const ema12 = [];
   const ema26 = [];
   const macd = [];
@@ -279,7 +279,7 @@ function calculateMACD(data: any[]) {
 }
 
 // Correlation matrix calculation
-function calculateCorrelations(positions: Position[]) {
+export function calculateCorrelations(positions: Position[]) {
   const correlationMatrix: Record<string, Record<string, number>> = {};
   
   positions.forEach(pos1 => {

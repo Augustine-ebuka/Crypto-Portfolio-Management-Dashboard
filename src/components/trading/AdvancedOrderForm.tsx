@@ -25,7 +25,7 @@ import {
   Shield,
   Info
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 // Order validation schema
 const orderSchema = z.object({
@@ -123,7 +123,7 @@ export const AdvancedOrderForm: React.FC<AdvancedOrderFormProps> = ({
 
   const handlePercentageSelect = useCallback((percentage: number) => {
     if (side === 'buy') {
-      const maxAmount = availableBalance / currentPrice;
+      const maxAmount = availableBalance / (typeof currentPrice === 'number' && !isNaN(currentPrice) && currentPrice !== 0 ? currentPrice : 1);
       setValue('amount', (maxAmount * percentage) / 100);
     } else if (currentPosition) {
       setValue('amount', (currentPosition.amount * percentage) / 100);
@@ -136,7 +136,7 @@ export const AdvancedOrderForm: React.FC<AdvancedOrderFormProps> = ({
       optimisticTrade({
         symbol: data.symbol,
         amount: data.amount,
-        price: data.price || currentPrice,
+        price: typeof data.price === 'number' && !isNaN(data.price) && data.price !== 0 ? data.price : (typeof currentPrice === 'number' ? currentPrice : 0),
         type: data.side,
       });
 

@@ -281,3 +281,5 @@ docs/api/
 wallet-data/
 trading-history/
 mock-data-exports/
+*storybook.log
+storybook-static
