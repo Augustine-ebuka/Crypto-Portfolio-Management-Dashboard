@@ -199,7 +199,6 @@ export function calculateMovingAverages(data: any[]) {
       // Simple Moving Average (20 periods)
       const sum = data.slice(i - 19, i + 1).reduce((acc, item) => acc + item.close, 0);
       sma20.push(sum / 20);
-      
       // Exponential Moving Average (20 periods)
       const multiplier = 2 / (20 + 1);
       const ema = i === 19 

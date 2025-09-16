@@ -76,6 +76,6 @@ describe("portfolioWorker calculations", () => {
 
     expect(correlations.BTC.BTC).toBe(1);
     expect(correlations.BTC.ETH).toBeGreaterThan(0);
-    expect(correlations.ETH.BTC).toBe(correlations.BTC.ETH); // symmetric
+    expect(correlations.ETH.BTC).toBe(correlations.BTC.ETH);
   });
 });
