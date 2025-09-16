@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["dom", "esnext"],
+    "module": "esnext",
+    "jsx": "react-jsx",   // 👈 IMPORTANT
+    "esModuleInterop": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": ["jest", "@testing-library/jest-dom"] // 👈 For Jest + RTL
+  },
+  "include": ["src", "src/**/*.test.tsx", "src/**/*.spec.tsx"],
+  "exclude": ["node_modules"]
+}
